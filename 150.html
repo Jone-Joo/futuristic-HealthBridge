@@ -1,0 +1,655 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBridge - Smart Healthcare System</title>
+    <link rel="stylesheet" href="150.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span class="logo-text">HealthBridge</span>
+            </a>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-i18n="nav_home">Home</a>
+                <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+                <a href="#doctors" class="nav-link" data-i18n="nav_doctors">Doctors</a>
+                <a href="#dashboard" class="nav-link" data-i18n="nav_dashboard">Dashboard</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="icon-btn lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-code">AR</span>
+                </button>
+                <button class="btn btn-primary login-btn" data-i18n="login">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Emergency Floating Button -->
+    <button class="emergency-fab" id="emergencyBtn" aria-label="Emergency">
+        <div class="emergency-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+        </div>
+        <span class="emergency-text" data-i18n="emergency">Emergency</span>
+        <div class="emergency-pulse"></div>
+    </button>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="badge">
+                            <span class="badge-dot"></span>
+                            <span data-i18n="hero_badge">AI-Powered Healthcare</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span data-i18n="hero_title_1">Your Health,</span>
+                            <span class="gradient-text" data-i18n="hero_title_2">Simplified</span>
+                        </h1>
+                        
+                        <p class="hero-description" data-i18n="hero_desc">
+                            Experience the future of healthcare with our smart digital platform. 
+                            Connect with top doctors, manage appointments, and track your wellness journey.
+                        </p>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-lg" onclick="app.showModal('appointment')">
+                                <span data-i18n="btn_book_now">Book Appointment</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                            <button class="btn btn-glass btn-lg" onclick="document.getElementById('symptomChecker').scrollIntoView({behavior: 'smooth'})">
+                                <span data-i18n="btn_check_symptoms">Check Symptoms</span>
+                            </button>
+                        </div>
+
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" data-count="50000">0</span>
+                                <span class="stat-label" data-i18n="stat_patients">Patients Treated</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-value" data-count="150">0</span>
+                                <span class="stat-label" data-i18n="stat_doctors">Expert Doctors</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-value" data-count="99">0</span>
+                                <span class="stat-suffix">%</span>
+                                <span class="stat-label" data-i18n="stat_satisfaction">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="glass-card health-score-card">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                </div>
+                                <div>
+                                    <h3 data-i18n="health_score">Health Score</h3>
+                                    <p class="card-subtitle" data-i18n="last_updated">Updated today</p>
+                                </div>
+                            </div>
+                            
+                            <div class="score-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-bg" cx="50" cy="50" r="45"/>
+                                    <circle class="score-progress" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="283"/>
+                                </svg>
+                                <div class="score-content">
+                                    <span class="score-number">92</span>
+                                    <span class="score-label" data-i18n="excellent">Excellent</span>
+                                </div>
+                            </div>
+
+                            <div class="score-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">72</span>
+                                    <span class="metric-label" data-i18n="heart_rate">BPM</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">98%</span>
+                                    <span class="metric-label" data-i18n="oxygen">O₂</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">120</span>
+                                    <span class="metric-label" data-i18n="bp">BP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="floating-card appointment-preview">
+                            <div class="preview-header">
+                                <div class="doctor-avatar">👨‍⚕️</div>
+                                <div>
+                                    <h4 data-i18n="next_appointment">Next Appointment</h4>
+                                    <p>Dr. Ahmed Hassan</p>
+                                </div>
+                            </div>
+                            <div class="preview-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                <span>Today, 2:30 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Search Section -->
+        <section class="search-section" id="doctors">
+            <div class="container">
+                <div class="glass-card search-card">
+                    <h2 class="section-title" data-i18n="find_doctor">Find Your Doctor</h2>
+                    
+                    <div class="search-box">
+                        <div class="search-input-wrapper">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            <input type="text" id="doctorSearch" placeholder="Search doctors, specialties..." data-i18n-placeholder="search_placeholder">
+                            <button class="voice-search" aria-label="Voice search">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                            </button>
+                        </div>
+                        <button class="btn btn-primary" data-i18n="search">Search</button>
+                    </div>
+
+                    <div class="quick-filters">
+                        <button class="filter-chip active" data-filter="all" data-i18n="filter_all">All</button>
+                        <button class="filter-chip" data-filter="cardiology" data-i18n="filter_cardiology">Cardiology</button>
+                        <button class="filter-chip" data-filter="neurology" data-i18n="filter_neurology">Neurology</button>
+                        <button class="filter-chip" data-filter="pediatrics" data-i18n="filter_pediatrics">Pediatrics</button>
+                        <button class="filter-chip" data-filter="dermatology" data-i18n="filter_dermatology">Dermatology</button>
+                        <button class="filter-chip" data-filter="orthopedics" data-i18n="filter_orthopedics">Orthopedics</button>
+                    </div>
+
+                    <div class="doctors-grid" id="doctorsGrid">
+                        <!-- Loaded dynamically via JS -->
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="our_services">Our Services</span>
+                    <h2 class="section-title" data-i18n="comprehensive_care">Comprehensive Care</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card glass-card">
+                        <div class="service-icon gradient-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/></svg>
+                        </div>
+                        <h3 data-i18n="service_ai">AI Diagnosis</h3>
+                        <p data-i18n="service_ai_desc">Advanced symptom analysis using machine learning algorithms</p>
+                        <a href="#" class="service-link">
+                            <span data-i18n="learn_more">Learn more</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon gradient-2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 data-i18n="service_tele">Telemedicine</h3>
+                        <p data-i18n="service_tele_desc">24/7 virtual consultations with world-class specialists</p>
+                        <a href="#" class="service-link">
+                            <span data-i18n="learn_more">Learn more</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon gradient-3">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h3 data-i18n="service_emergency">Emergency Care</h3>
+                        <p data-i18n="service_emergency_desc">Rapid response emergency services with real-time tracking</p>
+                        <a href="#" class="service-link">
+                            <span data-i18n="learn_more">Learn more</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon gradient-4">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <h3 data-i18n="service_monitor">Remote Monitoring</h3>
+                        <p data-i18n="service_monitor_desc">Continuous health tracking with smart device integration</p>
+                        <a href="#" class="service-link">
+                            <span data-i18n="learn_more">Learn more</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Symptom Checker -->
+        <section class="symptom-section" id="symptomChecker">
+            <div class="container">
+                <div class="glass-card symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">🤖</div>
+                        <div>
+                            <h2 data-i18n="ai_checker">AI Symptom Checker</h2>
+                            <p data-i18n="ai_checker_desc">Describe your symptoms for instant preliminary analysis</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-container" id="chatContainer">
+                        <div class="chat-message bot">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p data-i18n="chat_welcome">Hello! I'm your AI health assistant. Please describe your symptoms in detail.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="symptomInput" placeholder="Type your symptoms..." data-i18n-placeholder="type_symptoms">
+                        <button class="btn btn-primary" id="sendSymptom">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="quick-symptoms">
+                        <span data-i18n="common_symptoms">Common:</span>
+                        <button class="symptom-tag">Headache</button>
+                        <button class="symptom-tag">Fever</button>
+                        <button class="symptom-tag">Cough</button>
+                        <button class="symptom-tag">Fatigue</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Preview -->
+        <section class="dashboard-section" id="dashboard">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="patient_portal">Patient Portal</span>
+                    <h2 class="section-title" data-i18n="your_dashboard">Your Dashboard</h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Appointments -->
+                    <div class="dash-card glass-card">
+                        <div class="dash-header">
+                            <h3 data-i18n="upcoming_apps">Upcoming Appointments</h3>
+                            <button class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="appointment-list">
+                            <div class="appointment-item">
+                                <div class="app-time">
+                                    <span class="time">10:00</span>
+                                    <span class="period">AM</span>
+                                </div>
+                                <div class="app-info">
+                                    <h4>Dr. Sarah Chen</h4>
+                                    <p>Cardiology Checkup</p>
+                                </div>
+                                <span class="app-status confirmed" data-i18n="confirmed">Confirmed</span>
+                            </div>
+
+                            <div class="appointment-item">
+                                <div class="app-time">
+                                    <span class="time">02:30</span>
+                                    <span class="period">PM</span>
+                                </div>
+                                <div class="app-info">
+                                    <h4>Lab Results Review</h4>
+                                    <p>General Medicine</p>
+                                </div>
+                                <span class="app-status pending" data-i18n="pending">Pending</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline btn-sm" data-i18n="view_all">View All</button>
+                    </div>
+
+                    <!-- Medicine Reminder -->
+                    <div class="dash-card glass-card">
+                        <div class="dash-header">
+                            <h3 data-i18n="med_reminders">Medicine Reminders</h3>
+                            <span class="badge-count">2</span>
+                        </div>
+
+                        <div class="med-list">
+                            <div class="med-item">
+                                <div class="med-checkbox">
+                                    <input type="checkbox" id="med1" checked>
+                                    <label for="med1"></label>
+                                </div>
+                                <div class="med-info">
+                                    <h4>Vitamin D</h4>
+                                    <p>08:00 AM • After breakfast</p>
+                                </div>
+                                <span class="med-dose">1 pill</span>
+                            </div>
+
+                            <div class="med-item">
+                                <div class="med-checkbox">
+                                    <input type="checkbox" id="med2">
+                                    <label for="med2"></label>
+                                </div>
+                                <div class="med-info">
+                                    <h4>Omega-3</h4>
+                                    <p>08:00 PM • After dinner</p>
+                                </div>
+                                <span class="med-dose">2 pills</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Timeline -->
+                    <div class="dash-card glass-card timeline-card">
+                        <div class="dash-header">
+                            <h3 data-i18n="recent_activity">Recent Activity</h3>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Blood Test Results</h4>
+                                    <p>Cholesterol levels normal</p>
+                                    <span class="timeline-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Prescription Updated</h4>
+                                    <p>Dr. Ahmed Hassan</p>
+                                    <span class="timeline-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Annual Physical</h4>
+                                    <p>Completed successfully</p>
+                                    <span class="timeline-time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Queue -->
+                    <div class="dash-card glass-card queue-card">
+                        <div class="dash-header">
+                            <h3 data-i18n="virtual_queue">Virtual Queue</h3>
+                            <span class="live-badge">LIVE</span>
+                        </div>
+
+                        <div class="queue-status">
+                            <div class="queue-number">12</div>
+                            <div class="queue-info">
+                                <p data-i18n="people_ahead">People ahead of you</p>
+                                <span class="wait-time">Est. wait: <strong>15 mins</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="queue-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <div class="progress-steps">
+                                <span class="step completed">Check-in</span>
+                                <span class="step completed">Triage</span>
+                                <span class="step active">Consultation</span>
+                                <span class="step">Pharmacy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag" data-i18n="testimonials_tag">Testimonials</span>
+                    <h2 class="section-title" data-i18n="patient_stories">Patient Stories</h2>
+                </div>
+
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-track">
+                        <div class="testimonial-card glass-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"The AI symptom checker helped me identify my condition early. The seamless experience from booking to consultation was impressive."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">A</div>
+                                <div class="author-info">
+                                    <h4>Ahmed Khalid</h4>
+                                    <span>Cardiology Patient</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card glass-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"HealthBridge transformed how I manage my family's healthcare. The medicine reminders and virtual queue features are game-changers."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <div class="author-info">
+                                    <h4>Sarah Mohammad</h4>
+                                    <span>Mother of 2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card glass-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"As a busy professional, telemedicine consultations saved me countless hours. The doctors are professional and the platform is intuitive."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">M</div>
+                                <div class="author-info">
+                                    <h4>Mohammed Al-Rashid</h4>
+                                    <span>Business Executive</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn prev" onclick="app.moveSlider(-1)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="slider-btn next" onclick="app.moveSlider(1)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Tips -->
+        <section class="health-tips">
+            <div class="container">
+                <div class="tips-grid">
+                    <div class="tip-card glass-card">
+                        <div class="tip-icon">💧</div>
+                        <h3 data-i18n="stay_hydrated">Stay Hydrated</h3>
+                        <p data-i18n="hydration_tip">Drink at least 8 glasses of water daily for optimal health</p>
+                    </div>
+                    <div class="tip-card glass-card">
+                        <div class="tip-icon">🚶</div>
+                        <h3 data-i18n="daily_walk">Daily Walk</h3>
+                        <p data-i18n="walk_tip">30 minutes of walking reduces heart disease risk by 40%</p>
+                    </div>
+                    <div class="tip-card glass-card">
+                        <div class="tip-icon">😴</div>
+                        <h3 data-i18n="quality_sleep">Quality Sleep</h3>
+                        <p data-i18n="sleep_tip">Maintain 7-8 hours of sleep for better immunity</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="glass-card cta-card">
+                    <div class="cta-content">
+                        <h2 data-i18n="ready_start">Ready to Take Control?</h2>
+                        <p data-i18n="cta_desc">Join thousands of patients who trust HealthBridge for their healthcare needs.</p>
+                        <div class="cta-actions">
+                            <button class="btn btn-white btn-lg" data-i18n="get_started">Get Started Free</button>
+                            <button class="btn btn-outline-white btn-lg" data-i18n="contact_sales">Contact Sales</button>
+                        </div>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="floating-icons">
+                            <span>🏥</span>
+                            <span>👨‍⚕️</span>
+                            <span>💊</span>
+                            <span>❤️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <span>HealthBridge</span>
+                    </div>
+                    <p data-i18n="footer_desc">Revolutionizing healthcare through technology and compassion. Your health, our priority.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-i18n="quick_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                        <li><a href="#doctors" data-i18n="nav_doctors">Find Doctors</a></li>
+                        <li><a href="#dashboard" data-i18n="nav_dashboard">Dashboard</a></li>
+                        <li><a href="#" data-i18n="emergency">Emergency</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-i18n="support">Support</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="help_center">Help Center</a></li>
+                        <li><a href="#" data-i18n="privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="terms">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 data-i18n="contact_us">Contact</h4>
+                    <ul>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+1 234 567 890</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>care@healthbridge.com</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>123 Health Street, Medical City</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 HealthBridge. <span data-i18n="rights_reserved">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-overlay" onclick="app.closeModal()"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="app.closeModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="150.js"></script>
+</body>
+</html>
